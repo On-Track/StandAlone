@@ -1,0 +1,14 @@
+E:\CSharp\Projects\OnTrack\OnTrack\bin\Debug\OnTrack.exe.config
+E:\CSharp\Projects\OnTrack\OnTrack\bin\Debug\OnTrack.exe
+E:\CSharp\Projects\OnTrack\OnTrack\bin\Debug\OnTrack.pdb
+E:\CSharp\Projects\OnTrack\OnTrack\bin\Debug\MetroFramework.Design.dll
+E:\CSharp\Projects\OnTrack\OnTrack\bin\Debug\MetroFramework.dll
+E:\CSharp\Projects\OnTrack\OnTrack\bin\Debug\MetroFramework.Fonts.dll
+E:\CSharp\Projects\OnTrack\OnTrack\obj\Debug\OnTrack.MainWindow.resources
+E:\CSharp\Projects\OnTrack\OnTrack\obj\Debug\OnTrack.Properties.Resources.resources
+E:\CSharp\Projects\OnTrack\OnTrack\obj\Debug\OnTrack.csproj.GenerateResource.Cache
+E:\CSharp\Projects\OnTrack\OnTrack\obj\Debug\OnTrack.exe
+E:\CSharp\Projects\OnTrack\OnTrack\obj\Debug\OnTrack.pdb
+E:\CSharp\Projects\OnTrack\OnTrack\obj\Debug\OnTrack.csprojResolveAssemblyReference.cache
+E:\CSharp\Projects\OnTrack\OnTrack\bin\Debug\De.TorstenMandelkow.MetroChart.dll
+E:\CSharp\Projects\OnTrack\OnTrack\bin\Debug\De.TorstenMandelkow.MetroChart.pdb
