@@ -70,7 +70,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\DateHelper\DateHelper.cs" />
     <Compile Include="src\MachineEnvironment\MachineEnvironment.cs" />
+    <Compile Include="src\StudyTools\Subject.cs" />
+    <Compile Include="src\WebConnection\InboundStream.cs" />
+    <Compile Include="src\WebConnection\OutboundStream.cs" />
+    <Compile Include="src\WebConnection\WebConnection.cs" />
+    <Compile Include="src\WebConnection\WebHandler.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
