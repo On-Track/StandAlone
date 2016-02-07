@@ -7,14 +7,35 @@ using System.Net;
 
 namespace OnTrack.src.MachineEnvironment
 {
+    /**
+     *  @class MachineEnvironment
+     **/
     class MachineEnvironment
     {
+        /**
+         *  @var string machineName
+         **/
         private string machineName;
+        /**
+         *  @var string windowsUser
+         **/
         private string windowsUser;
+        /**
+         *  @var int machineUpTime
+         **/
         private int machineUpTime = 0;
+        /**
+         *  @var string machineIPAddress
+         **/
         private string machineIPAddress;
+        /**
+         *  @var string machineHostName
+         **/
         private string machineHostName;
-            
+        
+        /**
+         *  @return string
+         **/    
         public string getMachineName()
         {
             if (this.machineName == null) {
@@ -23,6 +44,9 @@ namespace OnTrack.src.MachineEnvironment
             return this.machineName;
         }
 
+        /**
+         *  @return string
+         **/
         public string getWindowsUser()
         {
             if (this.windowsUser == null) {
@@ -31,6 +55,9 @@ namespace OnTrack.src.MachineEnvironment
             return this.windowsUser;
         }
 
+        /**
+         *  @return int
+         **/
         public int getMachineUpTime()
         {
             if (this.machineUpTime == 0) {
@@ -39,6 +66,9 @@ namespace OnTrack.src.MachineEnvironment
             return this.machineUpTime;
         }
 
+        /**
+         *  @return string
+         **/
         public string getMachineHostName()
         {
             if (this.machineHostName == null) {
@@ -48,6 +78,9 @@ namespace OnTrack.src.MachineEnvironment
             
         }
 
+        /**
+         *  @return string
+         **/
         public string getLocalIP()
         {
             if (this.machineIPAddress == null ) {
@@ -56,6 +89,9 @@ namespace OnTrack.src.MachineEnvironment
             return this.machineIPAddress;
         }
 
+        /**
+         *  @return string
+         **/
         private string getLocalIPAddress()
         {
             IPAddress[] localIPAddresses = Dns.GetHostAddresses(this.getMachineHostName());

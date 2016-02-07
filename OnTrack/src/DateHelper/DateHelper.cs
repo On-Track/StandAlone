@@ -6,41 +6,67 @@ using System.Threading.Tasks;
 
 namespace OnTrack.src.DateHelper
 {
+    /**
+     *  @class DateHelper
+     **/
     class DateHelper
     {
-        private int milliSeconds;
+        /**
+         *  @var int milliseconds
+         **/
+        private int milliseconds;
 
-        // mutator / setter methods...
-        public void setMilliseconds(int milliSeconds)
+        #region mutator/setter methods...
+        /**
+         *  @param int milliseconds
+         *  @return void
+         **/
+        public void setMilliseconds(int milliseconds)
         {
-            this.milliSeconds = milliSeconds;
+            this.milliseconds = milliseconds;
         }
+        #endregion
 
-
-        // helper / getter methods...
+        #region helper/getter methods...
+        /**
+         *  @return int
+         **/
         public int getMilliSeconds()
         {
-            return this.milliSeconds;
+            return this.milliseconds;
         }
 
+        /**
+         *  @return int
+         **/
         public int getSeconds()
         {
-            return this.milliSeconds / 1000;
+            return this.milliseconds / 1000;
         }
 
+        /**
+         *  @return int
+         **/
         public int getMinutes()
         {
             return this.getSeconds() / 60;
         }
-
+        
+        /**
+         *  @return int
+         **/
         public int getHours()
         {
             return this.getMinutes() / 60;
         }
 
+        /**
+         *  @return int
+         **/
         public int getDays()
         {
             return this.getHours() / 24;
         }
+        #endregion
     }
 }
