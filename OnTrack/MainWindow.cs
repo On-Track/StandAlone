@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Forms;
+using OnTrack.src.Monitor;
+using System.Diagnostics;
 
 namespace OnTrack
 {
@@ -16,6 +18,7 @@ namespace OnTrack
         public MainWindow()
         {
             InitializeComponent();
+            new Monitor();
         }
 
         private void metroTextBox1_Click(object sender, EventArgs e)
@@ -24,6 +27,11 @@ namespace OnTrack
         }
 
         private void LineGraph_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
 
         }

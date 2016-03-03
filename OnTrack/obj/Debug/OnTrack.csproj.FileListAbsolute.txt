@@ -26,3 +26,4 @@ E:\College\Year 2\Semester 2\IGP\Project\GitHub\StandAlone\OnTrack\obj\Debug\OnT
 E:\College\Year 2\Semester 2\IGP\Project\GitHub\StandAlone\OnTrack\obj\Debug\OnTrack.MainWindow.resources
 E:\College\Year 2\Semester 2\IGP\Project\GitHub\StandAlone\OnTrack\obj\Debug\OnTrack.Properties.Resources.resources
 E:\College\Year 2\Semester 2\IGP\Project\GitHub\StandAlone\OnTrack\obj\Debug\OnTrack.csproj.GenerateResource.Cache
+E:\College\Year 2\Semester 2\IGP\Project\GitHub\StandAlone\OnTrack\obj\Debug\OnTrack.LoginForm.resources

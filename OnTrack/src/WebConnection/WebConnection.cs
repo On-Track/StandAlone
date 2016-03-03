@@ -17,12 +17,36 @@ namespace OnTrack.src.WebConnection
         private string url;
 
         /**
+         *  @var string method
+         **/
+        private string method;
+
+        /**
+         *  @var string postData
+         **/
+        private string postData;
+
+        /**
+         *  @var WebHandler handler
+         **/
+        private WebHandler handler;
+
+        /**
          *  @note default constructor
          *  @return void
          **/
-        public WebConnection()
+        public WebConnection(string url, string method, string postData)
         {
-            
+            this.url = url;
+            this.method = method;
+            this.postData = postData;
+            this.handler = new WebHandler(this.url, this.method, this.postData);
+            this.handler.run();
+        }
+
+        public string getResponse()
+        {
+            return this.handler.getResponse();
         }
 
         /**

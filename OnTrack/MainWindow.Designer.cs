@@ -62,14 +62,14 @@
             this.metroPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroPanel1.HorizontalScrollbarBarColor = true;
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.HorizontalScrollbarSize = 7;
+            this.metroPanel1.HorizontalScrollbarSize = 6;
             this.metroPanel1.Location = new System.Drawing.Point(124, 3);
             this.metroPanel1.Name = "metroPanel1";
             this.metroPanel1.Size = new System.Drawing.Size(909, 505);
             this.metroPanel1.TabIndex = 1;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.VerticalScrollbarSize = 7;
+            this.metroPanel1.VerticalScrollbarSize = 5;
             // 
             // treeView1
             // 
@@ -94,6 +94,7 @@
             treeNode7});
             this.treeView1.Size = new System.Drawing.Size(121, 505);
             this.treeView1.TabIndex = 0;
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // tabControl1
             // 
@@ -103,7 +104,7 @@
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(24, 64);
             this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 2;
+            this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1044, 553);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -209,6 +210,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "MainWindow";
             this.Padding = new System.Windows.Forms.Padding(24, 64, 24, 21);
+            this.Style = MetroFramework.MetroColorStyle.Orange;
             this.Text = "OnTrack";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.HomeTabPage.ResumeLayout(false);

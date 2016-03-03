@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net;
+using System.Diagnostics;
 
 namespace OnTrack.src.MachineEnvironment
 {
     /**
      *  @class MachineEnvironment
      **/
-    class MachineEnvironment
+    class Machine
     {
         /**
          *  @var string machineName
@@ -32,6 +33,11 @@ namespace OnTrack.src.MachineEnvironment
          *  @var string machineHostName
          **/
         private string machineHostName;
+        
+        /**
+         *  @var Process[] processes
+         **/
+        private Process[] processes;
         
         /**
          *  @return string
@@ -102,6 +108,30 @@ namespace OnTrack.src.MachineEnvironment
                 }
             }
             return null;
+        }
+        
+        /**
+         *  @return Process[]
+         **/
+        public Process[] getProcesses()
+        {
+            this.processes = Process.GetProcesses();
+            return this.processes;
+        }
+
+        /**
+         *  @return boolean
+         **/
+        public bool isProcessRunning(string name)
+        {
+            this.getProcesses();
+
+            foreach (var process in this.processes) {
+                if (process.ProcessName == name) {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
