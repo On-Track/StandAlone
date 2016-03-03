@@ -69,7 +69,7 @@
             this.metroPanel1.TabIndex = 1;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.VerticalScrollbarSize = 4;
+            this.metroPanel1.VerticalScrollbarSize = 3;
             // 
             // treeView1
             // 
@@ -103,7 +103,7 @@
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(24, 64);
             this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.SelectedIndex = 2;
             this.tabControl1.Size = new System.Drawing.Size(1044, 553);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -140,6 +140,7 @@
             this.metroButton1.TabIndex = 3;
             this.metroButton1.Text = "Submit";
             this.metroButton1.UseSelectable = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
             // lbInfoHeading
             // 

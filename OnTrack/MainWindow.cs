@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Forms;
 using OnTrack.src.Monitor;
+using OnTrack.src.WebConnection;
+using OnTrack.src.MachineEnvironment;
+using OnTrack.src.Models;
 using System.Diagnostics;
 
 namespace OnTrack
@@ -25,6 +28,21 @@ namespace OnTrack
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
+            //@todo check if this is machines first time opening app
+            Machine machine = new Machine();
+            WebConnection webRequest = new WebConnection("http://ontrackapp.org/update/register", "POST", "machine-name="+machine.getMachineName()+"&uptime="+machine.getMachineUpTime()+"&last-user="+User.username);
+            string response = webRequest.getResponse();
+            Debug.WriteLine(response);
+            //@todo load all study material from server
+        }
+
+        private void register()
+        {
+            //@todo check if this is machines first time opening app
+            Machine machine = new Machine();
+            WebConnection webRequest = new WebConnection("http://ontrackapp.org/update/register", "POST", "machine-name=" + machine.getMachineName() + "&uptime=" + machine.getMachineUpTime() + "&last-user=" + User.username);
+            string response = webRequest.getResponse();
+            Debug.WriteLine(response);
             //@todo load all study material from server
         }
 
@@ -32,6 +50,11 @@ namespace OnTrack
         {
             //@todo try save any unsaved progress
             Environment.Exit(1);
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            this.register();
         }
     }
 }

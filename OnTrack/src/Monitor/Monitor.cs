@@ -26,6 +26,9 @@ namespace OnTrack.src.Monitor
          **/
         private Machine machine;
 
+        /**
+         *  @var int 
+         **/
         private int timePlaying = 0;
 
 
@@ -45,12 +48,11 @@ namespace OnTrack.src.Monitor
         {
             while (this.isMonitoring) {
                 if (machine.isProcessRunning("Steam") || machine.isProcessRunning("Origin")) {
-                    Debug.WriteLine("Playing");
                     timePlaying++;
-                } else {
-                    Debug.WriteLine("Not Playing");
-                }
-                
+                } else {}
+                /**
+                 *  @note check if process is running every 900ms
+                 **/
                 Thread.Sleep(900);
             }
         }

@@ -50,8 +50,9 @@
             this.txtUsername.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtUsername.CustomButton.UseSelectable = true;
             this.txtUsername.CustomButton.Visible = false;
+            this.txtUsername.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.txtUsername.Lines = new string[0];
-            this.txtUsername.Location = new System.Drawing.Point(44, 95);
+            this.txtUsername.Location = new System.Drawing.Point(55, 95);
             this.txtUsername.MaxLength = 32767;
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.PasswordChar = '\0';
@@ -79,11 +80,12 @@
             this.txtPassword.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtPassword.CustomButton.UseSelectable = true;
             this.txtPassword.CustomButton.Visible = false;
+            this.txtPassword.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.txtPassword.Lines = new string[0];
-            this.txtPassword.Location = new System.Drawing.Point(44, 155);
+            this.txtPassword.Location = new System.Drawing.Point(55, 155);
             this.txtPassword.MaxLength = 32767;
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '\0';
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtPassword.SelectedText = "";
             this.txtPassword.SelectionLength = 0;
@@ -93,11 +95,10 @@
             this.txtPassword.UseSelectable = true;
             this.txtPassword.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtPassword.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txtPassword.PasswordChar = '*';
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(138, 199);
+            this.btnLogin.Location = new System.Drawing.Point(149, 199);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 2;
@@ -109,7 +110,7 @@
             // lbUsername
             // 
             this.lbUsername.AutoSize = true;
-            this.lbUsername.Location = new System.Drawing.Point(44, 70);
+            this.lbUsername.Location = new System.Drawing.Point(55, 70);
             this.lbUsername.Name = "lbUsername";
             this.lbUsername.Size = new System.Drawing.Size(68, 19);
             this.lbUsername.TabIndex = 3;
@@ -119,7 +120,7 @@
             // lbPassword
             // 
             this.lbPassword.AutoSize = true;
-            this.lbPassword.Location = new System.Drawing.Point(44, 130);
+            this.lbPassword.Location = new System.Drawing.Point(55, 130);
             this.lbPassword.Name = "lbPassword";
             this.lbPassword.Size = new System.Drawing.Size(63, 19);
             this.lbPassword.TabIndex = 4;

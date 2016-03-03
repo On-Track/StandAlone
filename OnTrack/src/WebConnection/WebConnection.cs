@@ -13,6 +13,8 @@ namespace OnTrack.src.WebConnection
     {
         public static string CODE_LOGIN_SUCCESSFUL ="0x000A";
         public static string CODE_LOGIN_FAILED = "0x000F";
+        public static string CODE_REGISTER_SUCCESS = "0x1000";
+        public static string CODE_REGISTER_FAIL = "0x100F";
         /**
          *  @var string url
          **/
