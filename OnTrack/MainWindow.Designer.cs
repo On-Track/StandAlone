@@ -69,7 +69,7 @@
             this.metroPanel1.TabIndex = 1;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.VerticalScrollbarSize = 5;
+            this.metroPanel1.VerticalScrollbarSize = 4;
             // 
             // treeView1
             // 
@@ -94,7 +94,6 @@
             treeNode7});
             this.treeView1.Size = new System.Drawing.Size(121, 505);
             this.treeView1.TabIndex = 0;
-            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // tabControl1
             // 
@@ -198,7 +197,6 @@
             this.txName.UseSelectable = true;
             this.txName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txName.Click += new System.EventHandler(this.metroTextBox1_Click);
             // 
             // MainWindow
             // 
@@ -213,6 +211,7 @@
             this.Style = MetroFramework.MetroColorStyle.Orange;
             this.Text = "OnTrack";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.Load += new System.EventHandler(this.MainWindow_Load);
             this.HomeTabPage.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.SettingsTab.ResumeLayout(false);

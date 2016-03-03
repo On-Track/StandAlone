@@ -15,25 +15,23 @@ namespace OnTrack
 {
     public partial class MainWindow : MetroForm
     {
+
         public MainWindow()
         {
             InitializeComponent();
             new Monitor();
+            this.FormClosing += this.MainWindow_Close;
         }
 
-        private void metroTextBox1_Click(object sender, EventArgs e)
+        private void MainWindow_Load(object sender, EventArgs e)
         {
-
+            //@todo load all study material from server
         }
 
-        private void LineGraph_Click(object sender, EventArgs e)
+        private void MainWindow_Close(object sender, EventArgs e)
         {
-
-        }
-
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-
+            //@todo try save any unsaved progress
+            Environment.Exit(1);
         }
     }
 }

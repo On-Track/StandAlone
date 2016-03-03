@@ -33,11 +33,10 @@ namespace OnTrack
             string username = txtUsername.Text, password = txtPassword.Text;
             WebConnection webRequest = new WebConnection("http://ontrackapp.org/login/remote", "POST", "username=" + username + "&password=" + password);
             string response = webRequest.getResponse();
-            Debug.WriteLine(response);
-            if (response == "0x000A") {
+            if (response == WebConnection.CODE_LOGIN_SUCCESSFUL) {
                 this.Hide();
                 this.loadMainWindow();
-            } else if (response == "0x000F") {
+            } else if (response == WebConnection.CODE_LOGIN_FAILED) {
                 lbLoginBanner.Text = "Login Failed.  Please Try Again!";
             }
 
