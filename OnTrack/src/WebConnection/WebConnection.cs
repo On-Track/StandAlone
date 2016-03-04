@@ -15,6 +15,7 @@ namespace OnTrack.src.WebConnection
         public static string CODE_LOGIN_FAILED = "0x000F";
         public static string CODE_REGISTER_SUCCESS = "0x1000";
         public static string CODE_REGISTER_FAIL = "0x100F";
+        public static string CODE_PING_SUCCESSFUL = "0x100B";
         /**
          *  @var string url
          **/
@@ -51,6 +52,11 @@ namespace OnTrack.src.WebConnection
         public string getResponse()
         {
             return this.handler.getResponse();
+        }
+
+        public string getRequestStatusDescription()
+        {
+            return this.handler.getResponseStatusDescription();
         }
 
         /**

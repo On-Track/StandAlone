@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using OnTrack.src.MachineEnvironment;
+using OnTrack.src.Models;
+using OnTrack.src.WebConnection;
 using System.Diagnostics;
 
 namespace OnTrack.src.Monitor
@@ -48,12 +50,19 @@ namespace OnTrack.src.Monitor
         {
             while (this.isMonitoring) {
                 if (machine.isProcessRunning("Steam") || machine.isProcessRunning("Origin")) {
-                    timePlaying++;
-                } else {}
+                    this.timePlaying++;
+                    Debug.WriteLine("Playing - " + this.timePlaying);
+                    if ((this.timePlaying % 60) == 0) {
+                        src.WebConnection.WebConnection webrequest = new src.WebConnection.WebConnection("http://ontrackapp.org/update/playing", "POST", "username=" + User.username+"&time="+this.timePlaying);
+                        this.timePlaying = 0;
+                    }
+                } else {
+
+                }
                 /**
-                 *  @note check if process is running every 900ms
+                 *  @note check if process is running every 1000ms
                  **/
-                Thread.Sleep(900);
+                Thread.Sleep(1000);
             }
         }
     }

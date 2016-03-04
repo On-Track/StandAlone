@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net;
+using System.Diagnostics;
 using System.IO;
 
 namespace OnTrack.src.WebConnection
@@ -56,25 +57,47 @@ namespace OnTrack.src.WebConnection
             this.request.ContentLength = this.postArray.Length;
         }
 
-        public void run()
+        public void run() 
         {
-            this.dataStream = this.request.GetRequestStream();
-            this.dataStream.Write(postArray, 0, postArray.Length);
-            this.dataStream.Close();
+            try {
+                this.dataStream = this.request.GetRequestStream();
+                this.dataStream.Write(postArray, 0, postArray.Length);
+                this.dataStream.Close();
+            } catch (WebException) {
+                throw;
+            }
         }
 
         public string getResponse()
         {
-            string res;
-            this.response = (HttpWebResponse)(this.request.GetResponse());
-            this.dataStream = this.response.GetResponseStream();
-            this.reader = new StreamReader(this.dataStream);
-            res = this.reader.ReadToEnd();
-            this.reader.Close();
-            this.dataStream.Close();
-            this.response.Close();
+            string res = "";
+            try
+            {
+                this.response = (HttpWebResponse)(this.request.GetResponse());
+                this.dataStream = this.response.GetResponseStream();
+                this.reader = new StreamReader(this.dataStream);
+                res = this.reader.ReadToEnd();
+                this.reader.Close();
+                this.dataStream.Close();
+                this.response.Close();
+            }
+            catch (WebException we) {
+                Debug.WriteLine(we.Message);
+                throw;
+            } catch (ProtocolViolationException pve) {
+                Debug.WriteLine(pve.Message);
+                throw;
+            } catch (ArgumentException ae) {
+                Debug.WriteLine(ae.Message);
+                throw;
+            }
             return res;
+        }
 
+        public string getResponseStatusDescription()
+        {
+            this.response = (HttpWebResponse)(this.request.GetResponse());
+            return this.response.StatusDescription;
         }
 
         /**

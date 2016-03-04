@@ -17,19 +17,19 @@
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Chapter 1");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Chapter2");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Chapter3");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Chapter4");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Chapter5");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Chapter6");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Subject", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4,
-            treeNode5,
-            treeNode6});
+            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("Chapter 1");
+            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("Chapter2");
+            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("Chapter3");
+            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("Chapter4");
+            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("Chapter5");
+            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("Chapter6");
+            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("Subject", new System.Windows.Forms.TreeNode[] {
+            treeNode43,
+            treeNode44,
+            treeNode45,
+            treeNode46,
+            treeNode47,
+            treeNode48});
             this.HomeTabPage = new System.Windows.Forms.TabPage();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.treeView1 = new System.Windows.Forms.TreeView();
@@ -40,6 +40,8 @@
             this.lbInfoHeading = new MetroFramework.Controls.MetroLabel();
             this.lbName = new MetroFramework.Controls.MetroLabel();
             this.txName = new MetroFramework.Controls.MetroTextBox();
+            this.lbStatus = new MetroFramework.Controls.MetroLabel();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.HomeTabPage.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.SettingsTab.SuspendLayout();
@@ -76,22 +78,22 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Left;
             this.treeView1.Location = new System.Drawing.Point(3, 3);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Node1";
-            treeNode1.Text = "Chapter 1";
-            treeNode2.Name = "Node2";
-            treeNode2.Text = "Chapter2";
-            treeNode3.Name = "Node3";
-            treeNode3.Text = "Chapter3";
-            treeNode4.Name = "Node4";
-            treeNode4.Text = "Chapter4";
-            treeNode5.Name = "Node5";
-            treeNode5.Text = "Chapter5";
-            treeNode6.Name = "Node6";
-            treeNode6.Text = "Chapter6";
-            treeNode7.Name = "Node0";
-            treeNode7.Text = "Subject";
+            treeNode43.Name = "Node1";
+            treeNode43.Text = "Chapter 1";
+            treeNode44.Name = "Node2";
+            treeNode44.Text = "Chapter2";
+            treeNode45.Name = "Node3";
+            treeNode45.Text = "Chapter3";
+            treeNode46.Name = "Node4";
+            treeNode46.Text = "Chapter4";
+            treeNode47.Name = "Node5";
+            treeNode47.Text = "Chapter5";
+            treeNode48.Name = "Node6";
+            treeNode48.Text = "Chapter6";
+            treeNode49.Name = "Node0";
+            treeNode49.Text = "Subject";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode7});
+            treeNode49});
             this.treeView1.Size = new System.Drawing.Size(121, 505);
             this.treeView1.TabIndex = 0;
             // 
@@ -103,7 +105,7 @@
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(24, 64);
             this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 2;
+            this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1044, 553);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -140,7 +142,6 @@
             this.metroButton1.TabIndex = 3;
             this.metroButton1.Text = "Submit";
             this.metroButton1.UseSelectable = true;
-            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
             // lbInfoHeading
             // 
@@ -199,11 +200,23 @@
             this.txName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
+            // lbStatus
+            // 
+            this.lbStatus.AutoSize = true;
+            this.lbStatus.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lbStatus.Location = new System.Drawing.Point(31, 616);
+            this.lbStatus.Name = "lbStatus";
+            this.lbStatus.Size = new System.Drawing.Size(0, 0);
+            this.lbStatus.TabIndex = 1;
+            this.lbStatus.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.lbStatus.UseCustomForeColor = true;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1092, 638);
+            this.Controls.Add(this.lbStatus);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -218,6 +231,7 @@
             this.SettingsTab.ResumeLayout(false);
             this.SettingsTab.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -233,6 +247,8 @@
         private MetroFramework.Controls.MetroLabel lbName;
         private MetroFramework.Controls.MetroLabel lbInfoHeading;
         private MetroFramework.Controls.MetroButton metroButton1;
+        private MetroFramework.Controls.MetroLabel lbStatus;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 

@@ -79,6 +79,7 @@
     <Compile Include="src\DateHelper\DateHelper.cs" />
     <Compile Include="src\MachineEnvironment\Machine.cs" />
     <Compile Include="src\Models\User.cs" />
+    <Compile Include="src\Monitor\MachineStatusMonitor.cs" />
     <Compile Include="src\Monitor\Monitor.cs" />
     <Compile Include="src\StudyTools\Subject.cs" />
     <Compile Include="src\WebConnection\WebConnection.cs" />

@@ -136,6 +136,7 @@
             this.lbLoginBanner.Size = new System.Drawing.Size(0, 0);
             this.lbLoginBanner.TabIndex = 5;
             this.lbLoginBanner.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.lbLoginBanner.UseCustomForeColor = true;
             // 
             // LoginForm
             // 
