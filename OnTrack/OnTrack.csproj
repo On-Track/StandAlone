@@ -81,6 +81,8 @@
     <Compile Include="src\Models\User.cs" />
     <Compile Include="src\Monitor\MachineStatusMonitor.cs" />
     <Compile Include="src\Monitor\Monitor.cs" />
+    <Compile Include="src\StudyTools\Question.cs" />
+    <Compile Include="src\StudyTools\Quiz.cs" />
     <Compile Include="src\StudyTools\Subject.cs" />
     <Compile Include="src\WebConnection\WebConnection.cs" />
     <Compile Include="src\WebConnection\WebHandler.cs" />

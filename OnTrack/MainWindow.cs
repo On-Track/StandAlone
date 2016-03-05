@@ -12,6 +12,7 @@ using OnTrack.src.Monitor;
 using OnTrack.src.WebConnection;
 using OnTrack.src.MachineEnvironment;
 using OnTrack.src.Models;
+using OnTrack.src.StudyTools;
 using System.Diagnostics;
 using System.Threading;
 
@@ -66,6 +67,13 @@ namespace OnTrack
         {
             //@todo try save any unsaved progress
             Environment.Exit(1);
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            Quiz quiz = new Quiz();
+            quiz.getQuestions();
+            quiz.viewQuestions();
         }
     }
 }
