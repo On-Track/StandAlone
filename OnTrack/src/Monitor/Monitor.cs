@@ -52,8 +52,9 @@ namespace OnTrack.src.Monitor
                 if (machine.isProcessRunning("Steam") || machine.isProcessRunning("Origin")) {
                     this.timePlaying++;
                     Debug.WriteLine("Playing - " + this.timePlaying);
-                    if ((this.timePlaying % 60) == 0) {
+                    if ((this.timePlaying % 5) == 0) {
                         src.WebConnection.WebConnection webrequest = new src.WebConnection.WebConnection("http://ontrackapp.org/update/playing", "POST", "username=" + User.username+"&time="+this.timePlaying);
+                        Debug.WriteLine(webrequest.getResponse());
                         this.timePlaying = 0;
                     }
                 } else {
