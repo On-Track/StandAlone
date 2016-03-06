@@ -33,7 +33,6 @@ namespace OnTrack.src.Monitor
          **/
         private int timePlaying = 0;
 
-
         public Monitor()
         {
             this.isMonitoring = true;

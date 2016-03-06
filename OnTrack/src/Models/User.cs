@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OnTrack.src.Models
+﻿namespace OnTrack.src.Models
 {
+    /**
+     *  @note static class used for creating basic models of users for storing dynamic user data under on object
+     **/
     static class User
     {
+        /**
+         *  @var string username
+         **/
         public static string username;
     }
 }

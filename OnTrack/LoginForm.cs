@@ -1,61 +1,70 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using MetroFramework.Forms;
 using OnTrack.src.Models;
 using OnTrack.src.WebConnection;
 using System.Net;
-
-using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 namespace OnTrack
 {
+    /**
+     *  @note MetroForm used for logging in and gaining accessing to the main window
+     **/
     public partial class LoginForm : MetroForm
     {
-        
+        /**
+         *  @note initialize GUI objects for the login frame
+         **/
         public LoginForm()
         {
             InitializeComponent();
         }
 
+        /**
+         *  @param object sender
+         *  @param EventArgs e
+         *  @return void
+         **/
         private void LoginForm_Load(object sender, EventArgs e)
         {
             lbLoginBanner.Text = "";
         }
 
+        /**
+         *  @note event fired when login button is clicked
+         **/
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            // perform login check and open main window.
+            /**
+             * @note perform login check and open main window.
+             **/
             string username = txtUsername.Text, password = txtPassword.Text;
             lbLoginBanner.Text = "";
-            try {
-                WebConnection webRequest = new WebConnection("http://ontrackapp.org/login/remote", "POST", "username=" + username + "&password=" + password);
-                string response = webRequest.getResponse();
-                if (response == WebConnection.CODE_LOGIN_SUCCESSFUL)
-                {
-                    User.username = username;
-                    this.Hide();
-                    this.loadMainWindow();
+            /**
+             *  @note form validation
+             **/
+            if (username.Length <= 2 || password.Length <= 6) {
+                lbLoginBanner.Text = "Please Complete the Form!";
+            } else {
+                try {
+                    WebConnection webRequest = new WebConnection("http://ontrackapp.org/ajax/remotelogin", "POST", "username=" + username + "&password=" + password);
+                    dynamic json = JObject.Parse(webRequest.getResponse());
+                    if (json.status == WebConnection.CODE_LOGIN_SUCCESSFUL) {
+                        User.username = username;
+                        this.Hide();
+                        this.loadMainWindow();
+                    } else {
+                        lbLoginBanner.Text = "Login Failed.  Please Try Again!";
+                    }
+                } catch (WebException) {
+                    lbLoginBanner.Text = "Please Check Your Connection";
                 }
-                else if (username.Length == 0 || password.Length == 0)
-                {
-                    lbLoginBanner.Text = "Please Complete the Form!";
-                }
-                else if (response == WebConnection.CODE_LOGIN_FAILED)
-                {
-                    lbLoginBanner.Text = "Login Failed.  Please Try Again!";
-                }
-            } catch (WebException) {
-                lbLoginBanner.Text = "Please Check Your Connection";
             }
         }
 
+        /**
+         *  @note function to load main window
+         **/
         [STAThread]
         private void loadMainWindow()
         {

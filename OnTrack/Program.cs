@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OnTrack
@@ -13,6 +10,9 @@ namespace OnTrack
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            /**
+             *  @note load the login form first
+             **/
             Application.Run(new LoginForm());
         }
     }

@@ -1,36 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using OnTrack.src.MachineEnvironment;
 using System.Threading;
 using OnTrack.src.Models;
-using System.Threading.Tasks;
 using System.Diagnostics;
-using System.Net;
 
 namespace OnTrack.src.Monitor
 {
     class MachineStatusMonitor
     {
         /**
-         *  @var Thread
+         *  @var Thread updateUserThread
          **/
         private Thread updateUserThread;
-        private Thread updateMachineThread;
-
         /**
-         *  @var bool
+         *  @var Thread updateMachineThread
+         **/
+        private Thread updateMachineThread;
+        /**
+         *  @var bool isMonitoring
          **/
         private bool isMonitoring;
-
         /**
-         *  @var Machine
+         *  @var Machine machine
          **/
         private Machine machine;
-
+        /**
+         *  @var bool isConnected
+         **/
         private bool isConnected = false;
-
 
         public MachineStatusMonitor()
         {
@@ -51,14 +48,11 @@ namespace OnTrack.src.Monitor
          **/
         public void updateUser()
         {
-            while (this.isMonitoring)
-            {
-                try
-                {
-                    src.WebConnection.WebConnection useronlinerequest = new src.WebConnection.WebConnection("http://ontrackapp.org/update/apponline", "POST", "username=" + User.username);
+            while (this.isMonitoring) {
+                try {
+                    src.WebConnection.WebConnection useronlinerequest = new src.WebConnection.WebConnection("http://ontrackapp.org/ajax/updatestatus/"+User.username, "POST", "method=client");
                     useronlinerequest.getResponse();
-                }
-                catch (Exception e) {
+                } catch (Exception e) {
                     this.isConnected = false;
                     Debug.WriteLine(e.Message);
                 }
@@ -66,14 +60,15 @@ namespace OnTrack.src.Monitor
             }
         }
 
+        /**
+         *  @return void
+         **/
         public void updateMachine()
         {
-            while (this.isMonitoring)
-            {
+            while (this.isMonitoring) {
                 try {
                     src.WebConnection.WebConnection deviceonlinerequest = new src.WebConnection.WebConnection("http://ontrackapp.org/update/deviceonline", "POST", "machine-name=" + machine.getMachineName() + "&username=" + User.username + "&uptime=" + machine.getMachineUpTime());
-                    if (deviceonlinerequest.getRequestStatusDescription() == "OK")
-                    {
+                    if (deviceonlinerequest.getRequestStatusDescription() == "OK") {
                         this.isConnected = true;
                     } else {
                         this.isConnected = false;
@@ -82,11 +77,13 @@ namespace OnTrack.src.Monitor
                 } catch (Exception) {
                     this.isConnected = false;
                 }
-                //Debug.WriteLine(this.isConnected);
                 Thread.Sleep(1000);
             }
         }
 
+        /**
+         *  @return bool
+         **/
         public bool getIsConnected()
         {
             return this.isConnected;

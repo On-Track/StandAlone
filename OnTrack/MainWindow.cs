@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Forms;
 using OnTrack.src.Monitor;
@@ -13,20 +7,34 @@ using OnTrack.src.WebConnection;
 using OnTrack.src.MachineEnvironment;
 using OnTrack.src.Models;
 using OnTrack.src.StudyTools;
-using System.Diagnostics;
 using System.Threading;
+using Newtonsoft.Json.Linq;
 
 namespace OnTrack
 {
     public partial class MainWindow : MetroForm
     {
+        /**
+         *  @var MachineStatusMonitor machineMonitor
+         **/
         MachineStatusMonitor machineMonitor;
+        /**
+         *  @var Thread statusThread
+         **/
         Thread statusThread;
+        /**
+         *  @var Quiz quiz
+         **/
+        Quiz quiz;
 
+        /**
+         *  @note initialize gui components for the main window
+         **/
         public MainWindow()
         {
             InitializeComponent();
             new OnTrack.src.Monitor.Monitor();
+            this.quiz = new Quiz();
             this.machineMonitor = new MachineStatusMonitor();
             this.statusThread = new Thread(status);
             this.statusThread.IsBackground = true;
@@ -34,19 +42,41 @@ namespace OnTrack
             this.FormClosing += this.MainWindow_Close;
         }
 
+        /**
+         *  @return void
+         **/
         private void MainWindow_Load(object sender, EventArgs e)
         {
-            //@todo check if this is machines first time opening app
             Machine machine = new Machine();
+            /**
+             *  @note update machine's online status
+             **/
             WebConnection webRequest = new WebConnection("http://ontrackapp.org/update/register", "POST", "machine-name="+machine.getMachineName()+"&uptime="+machine.getMachineUpTime()+"&last-user="+User.username);
+
+            /**
+             *  @note load subjects
+             **/
+            webRequest = new WebConnection("http://ontrackapp.org/ajax/subjects", "POST", "");
             string response = webRequest.getResponse();
-            //@todo load all study material from server
+            dynamic json = JObject.Parse(response);
+            if (response.Length > 0) {
+                foreach (var subject in json.subjects)
+                {
+                    /**
+                     *  @todo create links to other content for each subject
+                     **/
+                }
+            }
         }
-
         
-
+        /**
+         *  @return void
+         **/
         private void status()
         {
+            /**
+             *  @todo add a way to exit this loop
+             **/
             while (true) {
                 this.lbStatus.BeginInvoke(new Action(() =>
                 {
@@ -65,88 +95,102 @@ namespace OnTrack
         }
         private void MainWindow_Close(object sender, EventArgs e)
         {
-            //@todo try save any unsaved progress
+            /**
+             *  @todo try save any unsaved progress
+             **/
             Environment.Exit(1);
         }
 
-        private void metroButton1_Click(object sender, EventArgs e)
+        /**
+         *  @param object sender
+         *  @param EventArgs e
+         *  @return void
+         **/
+        private void btnTakeQuiz_Click(object sender, EventArgs e)
         {
-            Quiz quiz = new Quiz();
-            quiz.getQuestions();
-            quiz.viewQuestions();
+            /**
+             *  @note load questions from the server and create panels to display the questions
+             **/
+            this.mainPanel.Hide();
+            this.HomeTabPage.Controls.Add(this.quiz.getCurrentQuestionPanel());
+            this.quiz.getCurrentQuestionPanel().Show();
+            /**
+             *  @note add controls for the quiz
+             **/
+            this.controlPanel.Controls.Clear();
+            this.controlPanel.Controls.Add(this.btnQuizNext);
+            this.controlPanel.Controls.Add(this.btnQuizPrev);
+            this.controlPanel.Controls.Add(this.btnQuizSubmit);
         }
 
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        /**
+         *  @note update index of question list to show prev question
+         **/
+        private void btnQuizPrev_Click(object sender, EventArgs e)
         {
+            this.quiz.getCurrentQuestionPanel().Hide();
+            string ans = "";
+            /**
+             *  @note check if an answer has been supplied
+             **/
+            if (this.quiz.getCurrentQuestion().getRBAnswer1().Checked) {
+                ans = this.quiz.getCurrentQuestion().getRBAnswer1().Text;
+            } else if (this.quiz.getCurrentQuestion().getRBAnswer2().Checked) {
+                ans = this.quiz.getCurrentQuestion().getRBAnswer2().Text;
+            } else if (this.quiz.getCurrentQuestion().getRBAnswer3().Checked) {
+                ans = this.quiz.getCurrentQuestion().getRBAnswer3().Text;
+            } else if (this.quiz.getCurrentQuestion().getRBAnswer4().Checked) {
+                ans = this.quiz.getCurrentQuestion().getRBAnswer4().Text;
+            }
+            /**
+             *  @note change the question
+             **/
+            this.quiz.getCurrentQuestion().setAttempt(ans);
+            this.quiz.prev();
+            this.HomeTabPage.Controls.Add(this.quiz.getCurrentQuestionPanel());
+            this.quiz.getCurrentQuestionPanel().Show();
+        }
+
+        /**
+         *  @note update index of question list to show next question
+         **/
+        private void btnQuizNext_Click(object sender, EventArgs e)
+        {
+            this.quiz.getCurrentQuestionPanel().Hide();
+            string ans = "";
+            /**
+             *  @note check if an answer has been supplied
+             **/
+            if (this.quiz.getCurrentQuestion().getRBAnswer1().Checked) {
+                ans = this.quiz.getCurrentQuestion().getRBAnswer1().Text;
+            } else if (this.quiz.getCurrentQuestion().getRBAnswer2().Checked) {
+                ans = this.quiz.getCurrentQuestion().getRBAnswer2().Text;
+            } else if (this.quiz.getCurrentQuestion().getRBAnswer3().Checked) {
+                ans = this.quiz.getCurrentQuestion().getRBAnswer3().Text;
+            } else if (this.quiz.getCurrentQuestion().getRBAnswer4().Checked) {
+                ans = this.quiz.getCurrentQuestion().getRBAnswer4().Text;
+            }
+            /**
+             *  @note change the question
+             **/
+            this.quiz.getCurrentQuestion().setAttempt(ans);
+            this.quiz.next();
+            this.HomeTabPage.Controls.Add(this.quiz.getCurrentQuestionPanel());
+            this.quiz.getCurrentQuestionPanel().Show();
+        }
         
-        }
-
-        private void metroPanel1_Paint(object sender, PaintEventArgs e)
+        /**
+         *  @note event fired when the quiz submit buttin is clicked
+         **/
+        private void btnQuizSubmit_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void radioButton3_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void q4wa2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void nxtbutton1_Click(object sender, EventArgs e)
-        {
-            metropanel2.Visible = true;
-        }
-        private void nxtbutton2_Click(object sender, EventArgs e)
-        {
-            metropanel3.Visible = true;
-            metropanel2.Visible = false;
-        }
-        private void nxtbutton3_Click(object sender, EventArgs e)
-        {
-            metropanel4.Visible = true;
-            metropanel2.Visible = false;
-            metropanel3.Visible = false;
-        }
-
-        private void bckbutton3_Click(object sender, EventArgs e)
-        {
-            metropanel4.Visible = false;
-            metropanel2.Visible = false;
-            metropanel3.Visible = true;
-        }
-        private void bckbutton2_Click(object sender, EventArgs e)
-        {
-            metropanel4.Visible = false;
-            metropanel2.Visible = true;
-            metropanel3.Visible = false;
-        }
-        private void bckbutton1_Click(object sender, EventArgs e)
-        {
-            metropanel4.Visible = false;
-            metropanel2.Visible = false;
-            metropanel3.Visible = false;
-        }
-
-        private void metropanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-        private void metropanel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-        private void metropanel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void nxtbutton1_Click_1(object sender, EventArgs e)
-        {
-
+            /**
+             *  @note if we can successfully submit the quiz, open our main page and clear our control panel
+             **/
+            if (this.quiz.submit()) {
+                this.controlPanel.Controls.Clear();
+                this.mainPanel.Show();
+            }
         }
     }
 }

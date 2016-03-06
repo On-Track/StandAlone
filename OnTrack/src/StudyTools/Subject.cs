@@ -36,14 +36,6 @@ namespace OnTrack.src.StudyTools
          *  @var int subjectName
          **/
         private int subjectName;
-        /**
-         *  @var string[] contents
-         **/
-        private string[] contents;
-        /**
-         *  @var string currentContent
-         **/
-        private string currentContent;
 
         /**
          *  @note default constructor

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace OnTrack.src.WebConnection
 {
     /**
@@ -49,11 +44,17 @@ namespace OnTrack.src.WebConnection
             this.handler.run();
         }
 
+        /**
+         *  @return string
+         **/
         public string getResponse()
         {
             return this.handler.getResponse();
         }
 
+        /**
+         *  @return string
+         **/
         public string getRequestStatusDescription()
         {
             return this.handler.getResponseStatusDescription();

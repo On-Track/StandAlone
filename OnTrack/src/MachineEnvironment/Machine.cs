@@ -125,7 +125,6 @@ namespace OnTrack.src.MachineEnvironment
         public bool isProcessRunning(string name)
         {
             this.getProcesses();
-
             foreach (var process in this.processes) {
                 if (process.ProcessName == name) {
                     return true;

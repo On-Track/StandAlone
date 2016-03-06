@@ -41,3 +41,5 @@ C:\Users\Chris\Documents\College\Year 2\IDTP\StandAlone\StandAlone-develop\OnTra
 C:\Users\Chris\Documents\College\Year 2\IDTP\StandAlone\StandAlone-develop\OnTrack\obj\Debug\OnTrack.LoginForm.resources
 C:\Users\Chris\Documents\College\Year 2\IDTP\StandAlone\StandAlone-develop\OnTrack\obj\Debug\OnTrack.Properties.Resources.resources
 C:\Users\Chris\Documents\College\Year 2\IDTP\StandAlone\StandAlone-develop\OnTrack\obj\Debug\OnTrack.csproj.GenerateResource.Cache
+E:\College\Year 2\Semester 2\IGP\Project\GitHub\StandAlone\OnTrack\bin\Debug\Newtonsoft.Json.dll
+E:\College\Year 2\Semester 2\IGP\Project\GitHub\StandAlone\OnTrack\bin\Debug\Newtonsoft.Json.xml
