@@ -75,5 +75,78 @@ namespace OnTrack
             quiz.getQuestions();
             quiz.viewQuestions();
         }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+        
+        }
+
+        private void metroPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void q4wa2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nxtbutton1_Click(object sender, EventArgs e)
+        {
+            metropanel2.Visible = true;
+        }
+        private void nxtbutton2_Click(object sender, EventArgs e)
+        {
+            metropanel3.Visible = true;
+            metropanel2.Visible = false;
+        }
+        private void nxtbutton3_Click(object sender, EventArgs e)
+        {
+            metropanel4.Visible = true;
+            metropanel2.Visible = false;
+            metropanel3.Visible = false;
+        }
+
+        private void bckbutton3_Click(object sender, EventArgs e)
+        {
+            metropanel4.Visible = false;
+            metropanel2.Visible = false;
+            metropanel3.Visible = true;
+        }
+        private void bckbutton2_Click(object sender, EventArgs e)
+        {
+            metropanel4.Visible = false;
+            metropanel2.Visible = true;
+            metropanel3.Visible = false;
+        }
+        private void bckbutton1_Click(object sender, EventArgs e)
+        {
+            metropanel4.Visible = false;
+            metropanel2.Visible = false;
+            metropanel3.Visible = false;
+        }
+
+        private void metropanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        private void metropanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        private void metropanel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void nxtbutton1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
