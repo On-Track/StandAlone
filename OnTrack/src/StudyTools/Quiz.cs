@@ -50,16 +50,6 @@ namespace OnTrack.src.StudyTools
         }
 
         /**
-         *  @return void
-         **/
-        public void viewQuestions()
-        {
-            foreach (Question q in this.questions) {
-                Debug.WriteLine(q.getQuestion());
-            }
-        }
-
-        /**
          *  @param int i
          **/
         public void incIndex(int i)
@@ -77,7 +67,7 @@ namespace OnTrack.src.StudyTools
         public void decIndex(int i)
         {
             if (this.index - i <= 0) {
-                this.index = this.questions.Count;
+                this.index = (this.questions.Count-1);
             } else {
                 this.index -= i;
             }
@@ -112,7 +102,7 @@ namespace OnTrack.src.StudyTools
          **/
         public Panel getCurrentQuestionPanel()
         {
-            return this.questions.ElementAt(this.index).create();
+            return this.questions.ElementAt(this.index).getQuestionPanel();
         }
 
         /**
@@ -144,14 +134,29 @@ namespace OnTrack.src.StudyTools
              *  @note hide question panels
              **/
             foreach (var question in this.questions) {
-                question.getPanel().Hide();
+                question.getQuestionPanel().Hide();
             }
             /**
              *  @note sync the result upstream
              **/
-            System.Console.WriteLine(result);
             src.WebConnection.WebConnection webrequest = new src.WebConnection.WebConnection("http://ontrackapp.org/quiz/submit/" + User.username, "POST", "result="+result);
+            MessageBox.Show(correct + "/" + questionCount + " " + ((correct / questionCount) * 100) + "%");
             return true;
+        }
+
+        public int getIndex()
+        {
+            return this.index;
+        }
+
+        public void reset()
+        {
+            foreach (Question q in this.questions)
+            {
+                q.reset();
+            }
+            this.index = 0;
+            this.getQuestions();
         }
     }
 }

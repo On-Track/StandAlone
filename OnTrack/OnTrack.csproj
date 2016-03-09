@@ -81,6 +81,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\DateHelper\DateHelper.cs" />
+    <Compile Include="src\gfx\QuestionPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="src\MachineEnvironment\Machine.cs" />
     <Compile Include="src\Models\User.cs" />
     <Compile Include="src\Monitor\MachineStatusMonitor.cs" />

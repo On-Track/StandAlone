@@ -9,6 +9,7 @@ using OnTrack.src.Models;
 using OnTrack.src.StudyTools;
 using System.Threading;
 using Newtonsoft.Json.Linq;
+using OnTrack.src.gfx;
 
 namespace OnTrack
 {
@@ -40,6 +41,20 @@ namespace OnTrack
             this.statusThread.IsBackground = true;
             this.statusThread.Start();
             this.FormClosing += this.MainWindow_Close;
+        }
+
+        /**
+         *  @note seemed to be having an issue with the screen flickering when changing questions...
+         *  @note tried everything from enabling built-in double buffer to disabling redraw method on resize
+         *  @note snippet from http://www.codeproject.com/Questions/589712/C-plusControlsplusflickeringpluspluswhileplusMai
+         **/
+        protected override CreateParams CreateParams
+        {
+            get {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle = cp.ExStyle | 0x2000000;
+                return cp;
+            }
         }
 
         /**
@@ -189,6 +204,7 @@ namespace OnTrack
              **/
             if (this.quiz.submit()) {
                 this.controlPanel.Controls.Clear();
+                this.quiz.reset();
                 this.mainPanel.Show();
             }
         }

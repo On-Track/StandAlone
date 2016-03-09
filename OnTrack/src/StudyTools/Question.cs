@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Controls;
+using OnTrack.src.gfx;
 
 namespace OnTrack.src.StudyTools
 {
@@ -41,7 +38,7 @@ namespace OnTrack.src.StudyTools
         /**
          *  @var MetroPanel panel
          **/
-        private MetroPanel panel;
+        private QuestionPanel panel;
         /**
          *  @var MetroLabel lbQuestion
          **/
@@ -79,13 +76,6 @@ namespace OnTrack.src.StudyTools
             this.answer3 = ans3;
             this.answer4 = ans4;
             this.answer = ans;
-
-            this.panel = new MetroPanel();
-            this.lbQuestion = new MetroLabel();
-            this.rbAnswer1 = new MetroRadioButton();
-            this.rbAnswer2 = new MetroRadioButton();
-            this.rbAnswer3 = new MetroRadioButton();
-            this.rbAnswer4 = new MetroRadioButton();
         }
 
         /**
@@ -155,8 +145,14 @@ namespace OnTrack.src.StudyTools
         /**
          *  @return Panel
          **/
-        public Panel create()
+        public void create()
         {
+            this.panel = new QuestionPanel();
+            this.lbQuestion = new MetroLabel();
+            this.rbAnswer1 = new MetroRadioButton();
+            this.rbAnswer2 = new MetroRadioButton();
+            this.rbAnswer3 = new MetroRadioButton();
+            this.rbAnswer4 = new MetroRadioButton();
             /**
              *  @note panel
              **/
@@ -188,6 +184,7 @@ namespace OnTrack.src.StudyTools
              **/
             this.rbAnswer1.Text = this.getAnswer1();
             this.rbAnswer1.AutoSize = true;
+            this.rbAnswer1.AutoEllipsis = true;
             this.rbAnswer1.CheckedChanged += this.rbAnswer1_CheckedChanged;
             this.rbAnswer1.Location = new System.Drawing.Point(this.panel.Width /4 , ((lbQuestion.Top + lbQuestion.Height) + 10));
             this.rbAnswer1.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
@@ -231,11 +228,19 @@ namespace OnTrack.src.StudyTools
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();
             this.panel.Hide();
+        }
 
+        public QuestionPanel getQuestionPanel()
+        {
             /**
              *  @note return the panel
              **/
             return this.panel;
+        }
+
+        public void reset()
+        {
+            this.create();
         }
 
         /**
@@ -272,14 +277,6 @@ namespace OnTrack.src.StudyTools
         private void rbAnswer4_CheckedChanged(object sender, EventArgs e)
         {
             this.setAttempt(this.rbAnswer4.Text);
-        }
-
-        /**
-         *  @return Panel
-         **/
-        public Panel getPanel()
-        {
-            return this.panel;
         }
 
         /**
