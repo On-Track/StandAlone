@@ -43,3 +43,19 @@ C:\Users\Chris\Documents\College\Year 2\IDTP\StandAlone\StandAlone-develop\OnTra
 C:\Users\Chris\Documents\College\Year 2\IDTP\StandAlone\StandAlone-develop\OnTrack\obj\Debug\OnTrack.csproj.GenerateResource.Cache
 E:\College\Year 2\Semester 2\IGP\Project\GitHub\StandAlone\OnTrack\bin\Debug\Newtonsoft.Json.dll
 E:\College\Year 2\Semester 2\IGP\Project\GitHub\StandAlone\OnTrack\bin\Debug\Newtonsoft.Json.xml
+F:\Documents\College\Year 2\IDTP\StandAlone\OnTrack\bin\Debug\OnTrack.exe.config
+F:\Documents\College\Year 2\IDTP\StandAlone\OnTrack\obj\Debug\OnTrack.exe
+F:\Documents\College\Year 2\IDTP\StandAlone\OnTrack\obj\Debug\OnTrack.pdb
+F:\Documents\College\Year 2\IDTP\StandAlone\OnTrack\bin\Debug\OnTrack.exe
+F:\Documents\College\Year 2\IDTP\StandAlone\OnTrack\bin\Debug\OnTrack.pdb
+F:\Documents\College\Year 2\IDTP\StandAlone\OnTrack\bin\Debug\MetroFramework.Design.dll
+F:\Documents\College\Year 2\IDTP\StandAlone\OnTrack\bin\Debug\MetroFramework.dll
+F:\Documents\College\Year 2\IDTP\StandAlone\OnTrack\bin\Debug\MetroFramework.Fonts.dll
+F:\Documents\College\Year 2\IDTP\StandAlone\OnTrack\bin\Debug\Newtonsoft.Json.dll
+F:\Documents\College\Year 2\IDTP\StandAlone\OnTrack\bin\Debug\De.TorstenMandelkow.MetroChart.pdb
+F:\Documents\College\Year 2\IDTP\StandAlone\OnTrack\bin\Debug\Newtonsoft.Json.xml
+F:\Documents\College\Year 2\IDTP\StandAlone\OnTrack\obj\Debug\OnTrack.csprojResolveAssemblyReference.cache
+F:\Documents\College\Year 2\IDTP\StandAlone\OnTrack\obj\Debug\OnTrack.MainWindow.resources
+F:\Documents\College\Year 2\IDTP\StandAlone\OnTrack\obj\Debug\OnTrack.LoginForm.resources
+F:\Documents\College\Year 2\IDTP\StandAlone\OnTrack\obj\Debug\OnTrack.Properties.Resources.resources
+F:\Documents\College\Year 2\IDTP\StandAlone\OnTrack\obj\Debug\OnTrack.csproj.GenerateResource.Cache

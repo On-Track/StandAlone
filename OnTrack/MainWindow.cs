@@ -208,5 +208,32 @@ namespace OnTrack
                 this.mainPanel.Show();
             }
         }
+
+        private void mainPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTakeQuiz2_Click(object sender, EventArgs e)
+        {
+            /**
+            *  @note load questions from the server and create panels to display the questions
+            **/
+            this.mainPanel.Hide();
+            this.HomeTabPage.Controls.Add(this.quiz.getCurrentQuestionPanel());
+            this.quiz.getCurrentQuestionPanel().Show();
+            /**
+             *  @note add controls for the quiz
+             **/
+            this.controlPanel.Controls.Clear();
+            this.controlPanel.Controls.Add(this.btnQuizNext);
+            this.controlPanel.Controls.Add(this.btnQuizPrev);
+            this.controlPanel.Controls.Add(this.btnQuizSubmit);
+        }
     }
 }
