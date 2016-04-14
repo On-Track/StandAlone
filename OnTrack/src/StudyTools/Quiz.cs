@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using OnTrack.src.Models;
 using Newtonsoft.Json.Linq;
+using System;
 
 namespace OnTrack.src.StudyTools
 {
@@ -25,10 +26,12 @@ namespace OnTrack.src.StudyTools
         /**
          *  @note pull a list of available questions from the server and store in a json object
          **/
-        public Quiz()
+        public Quiz(string url)
         {
-            src.WebConnection.WebConnection webrequest = new WebConnection.WebConnection("http://ontrackapp.org/quiz/getquestions", "POST", "");
+            src.WebConnection.WebConnection webrequest = new WebConnection.WebConnection(url, "POST", "");
+            Console.WriteLine(url);
             string response = webrequest.getResponse();
+            Console.WriteLine(response);
             dynamic json = JObject.Parse(response);
             /**
              *  @note iterate through json object and create a question object for each question in the bank

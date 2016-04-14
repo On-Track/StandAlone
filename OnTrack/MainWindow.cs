@@ -10,6 +10,7 @@ using OnTrack.src.StudyTools;
 using System.Threading;
 using Newtonsoft.Json.Linq;
 using OnTrack.src.gfx;
+using System.Collections.Generic;
 
 namespace OnTrack
 {
@@ -28,6 +29,8 @@ namespace OnTrack
          **/
         Quiz quiz;
 
+        List<Subject> subjects = new List<Subject>();
+
         /**
          *  @note initialize gui components for the main window
          **/
@@ -35,7 +38,7 @@ namespace OnTrack
         {
             InitializeComponent();
             new OnTrack.src.Monitor.Monitor();
-            this.quiz = new Quiz();
+            //this.quiz = new Quiz();
             this.machineMonitor = new MachineStatusMonitor();
             this.statusThread = new Thread(status);
             this.statusThread.IsBackground = true;
@@ -74,12 +77,19 @@ namespace OnTrack
             webRequest = new WebConnection("http://ontrackapp.org/ajax/subjects", "POST", "");
             string response = webRequest.getResponse();
             dynamic json = JObject.Parse(response);
+            Console.Write(json);
             if (response.Length > 0) {
                 foreach (var subject in json.subjects)
                 {
                     /**
                      *  @todo create links to other content for each subject
                      **/
+                    Console.WriteLine("Getting Quiz for :" + subject.title);
+
+                    Subject sub = new Subject(subject.title);
+                    //sub.createQuiz();
+
+                    //subjects.Add(sub);
                 }
             }
         }

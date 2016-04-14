@@ -33,18 +33,27 @@ namespace OnTrack.src.StudyTools
 
 
         /**
-         *  @var int subjectName
+         *  @var string subjectName
          **/
-        private int subjectName;
+        private string subjectName;
+
+        private Quiz quiz;
+
+        private string quizURL = "http://ontrackapp.org/quiz/getquestions";
 
         /**
          *  @note default constructor
          *  @param int subjectName
          *  @return void
          **/
-        public Subject(int subjectName)
+        public Subject(string subjectName)
         {
-            this.subjectName = subjectName;
+            //this.subjectName = subjectName;
+        }
+
+        public void createQuiz()
+        {
+            this.quiz = new Quiz(this.quizURL);
         }
     }
 }
