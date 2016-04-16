@@ -19,6 +19,7 @@ namespace OnTrack
 
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.HomeTabPage = new System.Windows.Forms.TabPage();
             this.mainPanel = new MetroFramework.Controls.MetroPanel();
@@ -46,13 +47,21 @@ namespace OnTrack
             this.btnQuizPrev = new MetroFramework.Controls.MetroButton();
             this.tabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.SettingsTab = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.ReportsTab = new System.Windows.Forms.TabPage();
             this.lbStatus = new MetroFramework.Controls.MetroLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.HomeTabPage.SuspendLayout();
             this.mainPanel.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -60,9 +69,10 @@ namespace OnTrack
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.SettingsTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox4.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // HomeTabPage
@@ -90,7 +100,7 @@ namespace OnTrack
             this.mainPanel.ForeColor = System.Drawing.Color.OrangeRed;
             this.mainPanel.HorizontalScrollbarBarColor = true;
             this.mainPanel.HorizontalScrollbarHighlightOnWheel = false;
-            this.mainPanel.HorizontalScrollbarSize = 5;
+            this.mainPanel.HorizontalScrollbarSize = 6;
             this.mainPanel.Location = new System.Drawing.Point(3, 3);
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(1030, 442);
@@ -316,7 +326,7 @@ namespace OnTrack
             this.lbSubjectHomeFooter.AutoSize = true;
             this.lbSubjectHomeFooter.Location = new System.Drawing.Point(22, 52);
             this.lbSubjectHomeFooter.Name = "lbSubjectHomeFooter";
-            this.lbSubjectHomeFooter.Size = new System.Drawing.Size(281, 19);
+            this.lbSubjectHomeFooter.Size = new System.Drawing.Size(282, 19);
             this.lbSubjectHomeFooter.Style = MetroFramework.MetroColorStyle.Orange;
             this.lbSubjectHomeFooter.TabIndex = 3;
             this.lbSubjectHomeFooter.Text = "Please click below to take an introductory quiz.";
@@ -340,7 +350,7 @@ namespace OnTrack
             this.controlPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.controlPanel.HorizontalScrollbarBarColor = true;
             this.controlPanel.HorizontalScrollbarHighlightOnWheel = false;
-            this.controlPanel.HorizontalScrollbarSize = 5;
+            this.controlPanel.HorizontalScrollbarSize = 6;
             this.controlPanel.Location = new System.Drawing.Point(3, 445);
             this.controlPanel.Name = "controlPanel";
             this.controlPanel.Size = new System.Drawing.Size(1030, 63);
@@ -390,7 +400,7 @@ namespace OnTrack
             this.tabControl1.FontWeight = MetroFramework.MetroTabControlWeight.Regular;
             this.tabControl1.Location = new System.Drawing.Point(24, 64);
             this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.SelectedIndex = 1;
             this.tabControl1.Size = new System.Drawing.Size(1044, 553);
             this.tabControl1.Style = MetroFramework.MetroColorStyle.Orange;
             this.tabControl1.TabIndex = 0;
@@ -408,6 +418,117 @@ namespace OnTrack
             this.SettingsTab.Size = new System.Drawing.Size(1036, 511);
             this.SettingsTab.TabIndex = 2;
             this.SettingsTab.Text = "Settings";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.groupBox5);
+            this.panel1.Controls.Add(this.groupBox4);
+            this.panel1.Location = new System.Drawing.Point(0, 1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1039, 509);
+            this.panel1.TabIndex = 1;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.label4);
+            this.groupBox5.Controls.Add(this.label3);
+            this.groupBox5.Controls.Add(this.button3);
+            this.groupBox5.Controls.Add(this.label2);
+            this.groupBox5.Controls.Add(this.button2);
+            this.groupBox5.Controls.Add(this.label1);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox5.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.ForeColor = System.Drawing.Color.Coral;
+            this.groupBox5.Location = new System.Drawing.Point(0, 0);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(1039, 509);
+            this.groupBox5.TabIndex = 1;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Settings";
+            this.groupBox5.Visible = false;
+            this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter_1);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(330, 70);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(43, 31);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "Off";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.MouseLeave += new System.EventHandler(this.button3_MouseLeave);
+            this.button3.MouseHover += new System.EventHandler(this.button3_MouseHover);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(19, 74);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(219, 22);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Application Restriction";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(329, 33);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(44, 32);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Off";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.button2.MouseLeave += new System.EventHandler(this.button2_MouseLeave);
+            this.button2.MouseHover += new System.EventHandler(this.button2_MouseHover);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(16, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(101, 22);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Reporting";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.button1);
+            this.groupBox4.Controls.Add(this.textBox1);
+            this.groupBox4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.ForeColor = System.Drawing.Color.Coral;
+            this.groupBox4.Location = new System.Drawing.Point(108, 23);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(742, 201);
+            this.groupBox4.TabIndex = 0;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Please enter the administrator password to access settings:";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Location = new System.Drawing.Point(363, 92);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(97, 28);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Submit";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(80, 92);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(288, 26);
+            this.textBox1.TabIndex = 0;
             // 
             // ReportsTab
             // 
@@ -442,52 +563,33 @@ namespace OnTrack
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // groupBox4
+            // label3
             // 
-            this.groupBox4.Controls.Add(this.button1);
-            this.groupBox4.Controls.Add(this.textBox1);
-            this.groupBox4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.ForeColor = System.Drawing.Color.Coral;
-            this.groupBox4.Location = new System.Drawing.Point(193, 34);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(557, 225);
-            this.groupBox4.TabIndex = 4;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Please enter the administrator password to enter the application settings:";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(381, 33);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 18);
+            this.label3.TabIndex = 4;
             // 
-            // textBox1
+            // label4
             // 
-            this.textBox1.Location = new System.Drawing.Point(72, 85);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(394, 26);
-            this.textBox1.TabIndex = 0;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(378, 73);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(0, 18);
+            this.label4.TabIndex = 5;
             // 
-            // button1
+            // imageList1
             // 
-            this.button1.BackColor = System.Drawing.Color.Black;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.Location = new System.Drawing.Point(400, 152);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 33);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Confirm";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.groupBox4);
-            this.panel1.Location = new System.Drawing.Point(-4, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1044, 508);
-            this.panel1.TabIndex = 5;
-            this.panel1.Visible = false;
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "flat,800x800,075,f.jpg");
             // 
             // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1092, 638);
             this.Controls.Add(this.pictureBox1);
@@ -510,10 +612,12 @@ namespace OnTrack
             this.groupBox1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.SettingsTab.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -524,7 +628,6 @@ namespace OnTrack
         private TabPage HomeTabPage;
         private MetroTabControl tabControl1;
         private TabPage ReportsTab;
-        private TabPage SettingsTab;
         private MetroLabel lbStatus;
         private MetroPanel mainPanel;
         private MetroButton btnTakeQuizMath;
@@ -550,10 +653,19 @@ namespace OnTrack
         private MetroButton btnTakeQuizMath3;
         private ProgressBar progressBar3;
         private PictureBox pictureBox1;
+        private TabPage SettingsTab;
         private Panel panel1;
         private GroupBox groupBox4;
         private Button button1;
         private TextBox textBox1;
+        private GroupBox groupBox5;
+        private Button button2;
+        private Label label1;
+        private Button button3;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private ImageList imageList1;
     }
 }
 

@@ -48,7 +48,7 @@ namespace OnTrack.src.StudyTools
          **/
         public Subject(string subjectName)
         {
-            //this.subjectName = subjectName;
+            this.subjectName = subjectName;
         }
 
         public void createQuiz()

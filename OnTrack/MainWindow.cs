@@ -86,7 +86,7 @@ namespace OnTrack
                      **/
                     Console.WriteLine("Getting Quiz for :" + subject.title);
 
-                    Subject sub = new Subject(subject.title);
+                    //Subject sub = new Subject(subject.title);
                     //sub.createQuiz();
 
                     //subjects.Add(sub);
@@ -244,6 +244,75 @@ namespace OnTrack
             this.controlPanel.Controls.Add(this.btnQuizNext);
             this.controlPanel.Controls.Add(this.btnQuizPrev);
             this.controlPanel.Controls.Add(this.btnQuizSubmit);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            groupBox4.Visible = false;
+            groupBox5.Visible = true;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox5_Enter(object sender, EventArgs e)
+        {
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            if (button2.Text == "Off")
+            {
+                button2.Text = "On";
+            }
+            else if (button2.Text == "On")
+            {
+                button2.Text = "Off";
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (button3.Text == "Off")
+            {
+                button3.Text = "On";
+            }
+            else if (button3.Text == "On")
+            {
+                button3.Text = "Off";
+            }
+        }
+
+        private void groupBox5_Enter_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
+
+        private void button2_MouseHover(object sender, EventArgs e)
+        {
+            label3.Text = "This button will enable/disable the reporting on reports tab";
+        }
+
+        private void button2_MouseLeave(object sender, EventArgs e)
+        {
+            label3.Text = "";
+        }
+
+        private void button3_MouseHover(object sender, EventArgs e)
+        {
+            label4.Text = "This button will enable/disable the restriction of gaming applications.";
+        }
+
+        private void button3_MouseLeave(object sender, EventArgs e)
+        {
+            label4.Text = "";
         }
     }
 }
