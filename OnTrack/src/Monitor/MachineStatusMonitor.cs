@@ -50,7 +50,7 @@ namespace OnTrack.src.Monitor
         {
             while (this.isMonitoring) {
                 try {
-                    src.WebConnection.WebConnection useronlinerequest = new src.WebConnection.WebConnection("http://ontrackapp.org/ajax/updatestatus/"+User.username, "POST", "method=client");
+                    src.WebConnection.WebConnection useronlinerequest = new src.WebConnection.WebConnection("http://ontrackapp.org/ajax/updateUserOnlineStatus/" + User.username, "POST", "method=client app");
                     useronlinerequest.getResponse();
                 } catch (Exception e) {
                     this.isConnected = false;
@@ -67,7 +67,7 @@ namespace OnTrack.src.Monitor
         {
             while (this.isMonitoring) {
                 try {
-                    src.WebConnection.WebConnection deviceonlinerequest = new src.WebConnection.WebConnection("http://ontrackapp.org/update/deviceonline", "POST", "machine-name=" + machine.getMachineName() + "&username=" + User.username + "&uptime=" + machine.getMachineUpTime());
+                    src.WebConnection.WebConnection deviceonlinerequest = new src.WebConnection.WebConnection("http://ontrackapp.org/ajax/updateDeviceOnlineStatus", "POST", "machine-name=" + machine.getMachineName() + "&username=" + User.username + "&uptime=" + machine.getMachineUpTime());
                     if (deviceonlinerequest.getRequestStatusDescription() == "OK") {
                         this.isConnected = true;
                     } else {
