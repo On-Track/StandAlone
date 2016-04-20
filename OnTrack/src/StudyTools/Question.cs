@@ -5,7 +5,7 @@ using OnTrack.src.gfx;
 
 namespace OnTrack.src.StudyTools
 {
-    class Question
+    public class Question
     {
         /**
          *  @var string question
@@ -157,12 +157,12 @@ namespace OnTrack.src.StudyTools
              *  @note panel
              **/
             this.panel.SuspendLayout();
-            this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel.HorizontalScrollbarBarColor = true;
             this.panel.HorizontalScrollbarHighlightOnWheel = false;
             this.panel.HorizontalScrollbarSize = 7;
             this.panel.Location = new System.Drawing.Point(124, 3);
-            this.panel.Size = new System.Drawing.Size(909, 442);
+            this.panel.Size = new System.Drawing.Size(909, 375);
             this.panel.TabIndex = 1;
             this.panel.VerticalScrollbarBarColor = true;
             this.panel.VerticalScrollbarHighlightOnWheel = false;

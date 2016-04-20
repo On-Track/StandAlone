@@ -8,7 +8,7 @@ using System;
 
 namespace OnTrack.src.StudyTools
 {
-    class Quiz
+    public class Quiz
     {
         /**
          *  @var List<Question> questions
@@ -31,12 +31,12 @@ namespace OnTrack.src.StudyTools
             src.WebConnection.WebConnection webrequest = new WebConnection.WebConnection(url, "POST", "");
             Console.WriteLine(url);
             string response = webrequest.getResponse();
-            Console.WriteLine(response);
+            Console.WriteLine("response: "+response);
             dynamic json = JObject.Parse(response);
             /**
              *  @note iterate through json object and create a question object for each question in the bank
              **/
-            foreach (var question in json.questions)
+            foreach (var question in json["questions"])
             {
                 Question q = new Question((string)question.question, (string)question.answer1, (string)question.answer2, (string)question.answer3, (string)question.answer4, (string)question.answer);
                 this.questions.Add(q);

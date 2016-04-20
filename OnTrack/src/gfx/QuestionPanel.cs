@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace OnTrack.src.gfx
 {
-    class QuestionPanel : MetroPanel
+    public class QuestionPanel : MetroPanel
     {
         public QuestionPanel()
         {

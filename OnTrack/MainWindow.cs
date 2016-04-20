@@ -24,10 +24,6 @@ namespace OnTrack
          *  @var Thread statusThread
          **/
         Thread statusThread;
-        /**
-         *  @var Quiz quiz
-         **/
-        Quiz quiz;
 
         List<Subject> subjects = new List<Subject>();
 
@@ -38,7 +34,6 @@ namespace OnTrack
         {
             InitializeComponent();
             new OnTrack.src.Monitor.Monitor();
-            //this.quiz = new Quiz();
             this.machineMonitor = new MachineStatusMonitor();
             this.statusThread = new Thread(status);
             this.statusThread.IsBackground = true;
@@ -70,28 +65,29 @@ namespace OnTrack
              *  @note update machine's online status
              **/
             WebConnection webRequest = new WebConnection("http://ontrackapp.org/update/register", "POST", "machine-name="+machine.getMachineName()+"&uptime="+machine.getMachineUpTime()+"&last-user="+User.username);
-
             /**
              *  @note load subjects
              **/
             webRequest = new WebConnection("http://ontrackapp.org/ajax/subjects", "POST", "");
             string response = webRequest.getResponse();
             dynamic json = JObject.Parse(response);
-            Console.Write(json);
-            if (response.Length > 0) {
-                foreach (var subject in json.subjects)
+            foreach (var subject in json.subjects) {
+                Subject sub = new Subject();
+                sub.setSubjectName((string)subject.title);
+                this.subjects.Add(sub);
+            }
+            
+        }
+
+        public Subject getSubject(string subjectName)
+        {
+            foreach (Subject subject in this.subjects) {
+                if (subject.getSubjectName() == subjectName)
                 {
-                    /**
-                     *  @todo create links to other content for each subject
-                     **/
-                    Console.WriteLine("Getting Quiz for :" + subject.title);
-
-                    //Subject sub = new Subject(subject.title);
-                    //sub.createQuiz();
-
-                    //subjects.Add(sub);
+                    return subject;
                 }
             }
+            return new Subject();
         }
         
         /**
@@ -126,139 +122,10 @@ namespace OnTrack
             Environment.Exit(1);
         }
 
-        /**
-         *  @param object sender
-         *  @param EventArgs e
-         *  @return void
-         **/
-        private void btnTakeQuiz_Click(object sender, EventArgs e)
-        {
-            /**
-             *  @note load questions from the server and create panels to display the questions
-             **/
-            this.mainPanel.Hide();
-            this.HomeTabPage.Controls.Add(this.quiz.getCurrentQuestionPanel());
-            this.quiz.getCurrentQuestionPanel().Show();
-            /**
-             *  @note add controls for the quiz
-             **/
-            this.controlPanel.Controls.Clear();
-            this.controlPanel.Controls.Add(this.btnQuizNext);
-            this.controlPanel.Controls.Add(this.btnQuizPrev);
-            this.controlPanel.Controls.Add(this.btnQuizSubmit);
-        }
-
-        /**
-         *  @note update index of question list to show prev question
-         **/
-        private void btnQuizPrev_Click(object sender, EventArgs e)
-        {
-            this.quiz.getCurrentQuestionPanel().Hide();
-            string ans = "";
-            /**
-             *  @note check if an answer has been supplied
-             **/
-            if (this.quiz.getCurrentQuestion().getRBAnswer1().Checked) {
-                ans = this.quiz.getCurrentQuestion().getRBAnswer1().Text;
-            } else if (this.quiz.getCurrentQuestion().getRBAnswer2().Checked) {
-                ans = this.quiz.getCurrentQuestion().getRBAnswer2().Text;
-            } else if (this.quiz.getCurrentQuestion().getRBAnswer3().Checked) {
-                ans = this.quiz.getCurrentQuestion().getRBAnswer3().Text;
-            } else if (this.quiz.getCurrentQuestion().getRBAnswer4().Checked) {
-                ans = this.quiz.getCurrentQuestion().getRBAnswer4().Text;
-            }
-            /**
-             *  @note change the question
-             **/
-            this.quiz.getCurrentQuestion().setAttempt(ans);
-            this.quiz.prev();
-            this.HomeTabPage.Controls.Add(this.quiz.getCurrentQuestionPanel());
-            this.quiz.getCurrentQuestionPanel().Show();
-        }
-
-        /**
-         *  @note update index of question list to show next question
-         **/
-        private void btnQuizNext_Click(object sender, EventArgs e)
-        {
-            this.quiz.getCurrentQuestionPanel().Hide();
-            string ans = "";
-            /**
-             *  @note check if an answer has been supplied
-             **/
-            if (this.quiz.getCurrentQuestion().getRBAnswer1().Checked) {
-                ans = this.quiz.getCurrentQuestion().getRBAnswer1().Text;
-            } else if (this.quiz.getCurrentQuestion().getRBAnswer2().Checked) {
-                ans = this.quiz.getCurrentQuestion().getRBAnswer2().Text;
-            } else if (this.quiz.getCurrentQuestion().getRBAnswer3().Checked) {
-                ans = this.quiz.getCurrentQuestion().getRBAnswer3().Text;
-            } else if (this.quiz.getCurrentQuestion().getRBAnswer4().Checked) {
-                ans = this.quiz.getCurrentQuestion().getRBAnswer4().Text;
-            }
-            /**
-             *  @note change the question
-             **/
-            this.quiz.getCurrentQuestion().setAttempt(ans);
-            this.quiz.next();
-            this.HomeTabPage.Controls.Add(this.quiz.getCurrentQuestionPanel());
-            this.quiz.getCurrentQuestionPanel().Show();
-        }
-        
-        /**
-         *  @note event fired when the quiz submit buttin is clicked
-         **/
-        private void btnQuizSubmit_Click(object sender, EventArgs e)
-        {
-            /**
-             *  @note if we can successfully submit the quiz, open our main page and clear our control panel
-             **/
-            if (this.quiz.submit()) {
-                this.controlPanel.Controls.Clear();
-                this.quiz.reset();
-                this.mainPanel.Show();
-            }
-        }
-
-        private void mainPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnTakeQuiz2_Click(object sender, EventArgs e)
-        {
-            /**
-            *  @note load questions from the server and create panels to display the questions
-            **/
-            this.mainPanel.Hide();
-            this.HomeTabPage.Controls.Add(this.quiz.getCurrentQuestionPanel());
-            this.quiz.getCurrentQuestionPanel().Show();
-            /**
-             *  @note add controls for the quiz
-             **/
-            this.controlPanel.Controls.Clear();
-            this.controlPanel.Controls.Add(this.btnQuizNext);
-            this.controlPanel.Controls.Add(this.btnQuizPrev);
-            this.controlPanel.Controls.Add(this.btnQuizSubmit);
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             groupBox4.Visible = false;
             groupBox5.Visible = true;
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox5_Enter(object sender, EventArgs e)
-        {
         }
 
         private void button2_Click_1(object sender, EventArgs e)
@@ -285,16 +152,6 @@ namespace OnTrack
             }
         }
 
-        private void groupBox5_Enter_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolTip1_Popup(object sender, PopupEventArgs e)
-        {
-
-        }
-
         private void button2_MouseHover(object sender, EventArgs e)
         {
             label3.Text = "This button will enable/disable the reporting on reports tab";
@@ -313,6 +170,58 @@ namespace OnTrack
         private void button3_MouseLeave(object sender, EventArgs e)
         {
             label4.Text = "";
+        }
+
+        private void btnMathStudy_Click(object sender, EventArgs e)
+        {
+            this.mainPanel.Hide();
+            this.HomeTabPage.Controls.Add(this.getSubject("math").createPanel(this.mainPanel));
+        }
+
+        private void btnScienceStudy_Click(object sender, EventArgs e)
+        {
+            this.mainPanel.Hide();
+            this.HomeTabPage.Controls.Add(this.getSubject("science").createPanel(this.mainPanel));
+        }
+
+        private void metroButton7_Click(object sender, EventArgs e)
+        {
+            this.mainPanel.Hide();
+            this.HomeTabPage.Controls.Add(this.getSubject("history").createPanel(this.mainPanel));
+        }
+
+        private void btnTakeQuizMath_Click(object sender, EventArgs e)
+        {
+            this.getSubject("math").createQuiz();
+            this.getSubject("math").getQuiz().getCurrentQuestion().create();
+            this.getSubject("math").getQuiz().getCurrentQuestionPanel().Show();
+            Quiz quiz = new Quiz(this.getSubject("math").getQuiz());
+            quiz.Controls.Add(this.getSubject("math").getQuiz().getCurrentQuestionPanel());
+            this.getSubject("math").getQuiz().getCurrentQuestionPanel().BringToFront();
+            quiz.Show();
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            this.getSubject("science").createQuiz();
+            this.getSubject("science").getQuiz().getCurrentQuestion().create();   
+            this.getSubject("science").getQuiz().getCurrentQuestionPanel().Show();
+            Quiz quiz = new Quiz(this.getSubject("science").getQuiz());
+            quiz.Controls.Add(this.getSubject("science").getQuiz().getCurrentQuestionPanel());
+            this.getSubject("science").getQuiz().getCurrentQuestionPanel().BringToFront();
+            quiz.Show();
+        }
+
+        private void metroButton4_Click(object sender, EventArgs e)
+        {
+            
+            this.getSubject("history").createQuiz();
+            this.getSubject("history").getQuiz().getCurrentQuestion().create();
+            this.getSubject("history").getQuiz().getCurrentQuestionPanel().Show();
+            Quiz quiz = new Quiz(this.getSubject("history").getQuiz());
+            quiz.Controls.Add(this.getSubject("history").getQuiz().getCurrentQuestionPanel());
+            this.getSubject("history").getQuiz().getCurrentQuestionPanel().BringToFront();
+            quiz.Show();
         }
     }
 }
